@@ -13,11 +13,6 @@ public class FilmManager {
         this.movieCount = movieCount;
     }
 
-    public FilmManager(String movieId, String movieName, String movieDescription, String movieGenre, String moviePoster, String moviePromo) {
-        Movie item = new Movie(movieId, movieName, movieDescription, movieGenre, moviePoster, moviePromo);
-        addMovie(item);
-    }
-
     public void addMovie(Movie item) {
         Movie[] tmp = new Movie[movieСollection.length + 1];
         for (int i = 0; i < movieСollection.length; i++) {
@@ -43,20 +38,6 @@ public class FilmManager {
         return movieСollection;
     }
 
-    public Movie[] findFirst() {
-        int resultLength;
-        if (movieCount > movieСollection.length || movieCount < 0) {
-            resultLength = movieСollection.length;
-        } else {
-            resultLength = movieCount;
-        }
-        Movie[] result = new Movie[resultLength];
-        for (int i = 0; i < resultLength; i++) {
-            result[i] = movieСollection[i];
-        }
-        return result;
-    }
-
     public Movie[] findLast() {
         int x, count, resultLength;
         if (movieCount > movieСollection.length - 1 || movieCount < 0) {
@@ -75,9 +56,10 @@ public class FilmManager {
         return result;
     }
 
-    public void print(Movie[] arr) {
-        for (Movie movie : arr) {
-            System.out.println(movie.movieToString());
-        }
+    public void print(Movie[] all) {
+    }
+
+    public Movie[] findFirst() {
+        return new Movie[0];
     }
 }
